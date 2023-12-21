@@ -1,6 +1,6 @@
 # How to run
 
-1. Clone the repository https://github.com/Ashequemahmood/Quiz-service-Platform.git or download the folder Quiz Service Platform.
+1. Clone the repository https://github.com/Ashequemahmood/Quiz-service-Platform.git or download as zip. Unzip the folder Quiz Service Platform.
 2. Go into directory drill-and-practice. (cd drill-and-practice )
 3. Make sure that the Docker is installed in your system and it's up and running
 4. Run locally with the command: deno run --allow-all --watch app-launch.js.
