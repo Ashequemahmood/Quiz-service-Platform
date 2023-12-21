@@ -1,0 +1,13 @@
+<% layout("./layouts/layout.eta") %>
+
+<div class="mx-auto m-4 p-2" style="width: 400px;">
+  <h3>Login!</h3>
+
+<form method="POST">
+    <input type="email" name="email" placeholder="email"/><br>
+    <input type="password" name="password" placeholder="password"/><br>
+    <input type="submit" value="Submit!" />
+</form>
+
+<a href="/auth/registration">Don't have an account yet!! Register here</a>
+</div>

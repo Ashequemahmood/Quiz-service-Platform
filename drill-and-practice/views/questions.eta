@@ -1,0 +1,37 @@
+<% layout("./layouts/layout.eta") %>
+
+<div class="mx-auto m-4 p-2" style="width: 400px;">
+  <h3>Topic Name: <%= it.topics.name %></h3>
+</div>
+
+
+
+
+
+<h4>Questions!</h4>
+
+
+<% if (it.questions && it.questions.length > 0) { %>
+
+<ul>
+<% it.questions.forEach(question => { %>
+  <li>
+    <a href="/topics/<%= it.topics.id %>/questions/<%= question.id %>"><%= question.question_text %></a>
+    
+  </li>
+<% }); %>
+</ul>
+
+<% } else { %>
+
+<p>None available.</p>
+
+<% } %>
+
+
+
+    <form class="form-group" method="POST" action="/topics/<%= it.topics.id %>/questions">
+    Add a question!:<br/>
+    <textarea class="form-control" name="question_text"></textarea>
+    <input class="mt-2" type="submit" value="Add"/>
+    </form>

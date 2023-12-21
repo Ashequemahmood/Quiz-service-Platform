@@ -1,0 +1,66 @@
+<% layout("./layouts/layout.eta") %>
+
+
+
+<div class="mx-auto m-4 p-2" style="width: 400px;">
+  <h3><%= it.questions.question_text %></h3>
+</div>
+
+
+
+<% if (it.options && it.options.length > 0) { %>
+
+<table class="table">
+
+  <thead>
+    <tr>
+      <th scope="col">Options!</th>
+      <th scope="col">Correct answer!</th>
+      <th scope="col">Remove?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <% it.options.forEach(option => { %>
+    <td><a href=""><%= option.option_text %></a></td>
+    <td><%= option.is_correct %></td>
+    <td><form method="POST" action="/topics/<%= it.topics.id %>/questions/<%= it.questions.id %>/options/<%= option.id %>/delete">
+      <input type="submit" value="Delete option" />
+    </form></td>
+    </tr>
+  </tbody>
+<% }); %>
+</table>
+
+<% } else { %>
+
+<p>None available.</p>
+<form method="POST" action="/topics/<%= it.topics.id %>/questions/<%= it.questions.id %>/delete">
+  <input type="submit" value="Delete question"/>
+</form>
+
+<% } %>
+
+<% /* errors */ %>
+<% if (it.errors) { %>
+<ul>
+    <% Object.keys(it.errors).forEach((attribute) => { %>
+        <% Object.values(it.errors[attribute]).forEach((err) => { %>
+            <li><%= err %></li>
+        <% }); %>
+    <% }); %>
+</ul>
+<% } %>
+
+
+    <form class="form-group" method="POST" action="/topics/<%= it.topics.id %>/questions/<%= it.questions.id %>/options">
+    Add an option!<br/>
+    <textarea class="form-control" name="option_text"></textarea><br>
+    <label for="is_correct">Is this the correct answer?</label>
+    <input type="checkbox" id="is_correct" name="is_correct"/><br>
+    
+    <input type="submit" value="Submit"/><br>
+    
+
+    </form>
+  

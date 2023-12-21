@@ -1,0 +1,16 @@
+<% layout("./layouts/layout.eta") %>
+
+
+<h5>Topics!</h5><br>
+
+<% if (it.listTopics && it.listTopics.length > 0) { %>
+<% it.listTopics.forEach(listTopic => { %>
+    
+  <li> <a href="/quiz/<%= listTopic.id %>"><%= listTopic.name %></a> </li>
+    
+    
+<% }); %>
+<% } else { %>
+<p>None available.</p>
+<% } %>
+

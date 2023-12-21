@@ -1,0 +1,21 @@
+<% layout("./layouts/layout.eta") %>
+
+
+
+
+<h5><%= it.topic.name %></h5><br>
+
+
+<% if (it.randomQuestions) { %>
+  <a href="/quiz/<%= it.topic.id %>/questions/<%= it.randomQuestions.id %>"><%= it.randomQuestions.question_text %></a>
+<% } else { %>
+  <p>There are no questions so far for the topic.</p>
+<% } %>
+
+
+
+
+
+
+
+

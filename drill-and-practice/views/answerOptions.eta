@@ -1,0 +1,30 @@
+<% layout("./layouts/layout.eta") %>
+
+
+<h5><%= it.question.question_text %></h5>
+
+<% if (it.options && it.options.length > 0) { %>
+
+<table class="table">
+<thead>
+    <tr>
+      <th scope="col">Answer:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+<% it.options.forEach(option => { %>
+    
+  <th><%= option.option_text %></th>
+  <th><form method="POST" action="/quiz/<%= it.topic.id %>/questions/<%= it.question.id %>/options/<%= option.id %>">
+      <input  type="submit" value="Choose" />
+    </form></th>
+    </tr>
+    </tbody>
+    
+<% }); %>
+</table>
+
+<% } else { %>
+<p>None available.</p>
+<% } %>

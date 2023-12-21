@@ -1,0 +1,5 @@
+<% layout("./layouts/layout.eta") %>
+
+<p>Asheque</p>
+
+<%= it.options.is_correct %>

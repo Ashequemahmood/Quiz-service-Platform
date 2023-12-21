@@ -1,0 +1,34 @@
+<% layout("./layouts/layout.eta") %>
+
+
+<div class="mx-auto m-4 p-2" style="width: 200px;">
+  <h3>Topics</h3>
+</div>
+
+
+
+<% if (it.topics && it.topics.length > 0) { %>
+<table class="table">
+
+
+  <thead>
+    <tr>
+      <th scope="col">Topics!</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <% it.topics.forEach(topic => { %>
+    <th><a href="/topics/<%= topic.id %>"><%= topic.name %></a></th>
+    
+  </tr>
+  </tbody>
+<% }); %>
+</table>
+
+<% } else { %>
+
+<p>None available.</p>
+
+<% } %>

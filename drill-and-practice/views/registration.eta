@@ -1,0 +1,25 @@
+<% layout("./layouts/layout.eta") %>
+
+<div class="mx-auto m-4 p-2" style="width: 400px;">
+  <h3>Register!</h3>
+
+
+<% if (it.errors) { %>
+<ul>
+    <% Object.keys(it.errors).forEach((attribute) => { %>
+        <% Object.values(it.errors[attribute]).forEach((err) => { %>
+            <li><%= err %></li>
+        <% }); %>
+    <% }); %>
+</ul>
+<% } %>
+
+<form method="POST">
+    <input type="email" name="email" placeholder="email" /><br>
+    <input type="password" name="password" placeholder="password" /><br>
+    <input type="password" name="verification" placeholder="verification"/><br>
+    <input type="submit" value="Submit!" />
+</form>
+
+<a href="/auth/login">Already have an account!! Please login here</a>
+</div>
